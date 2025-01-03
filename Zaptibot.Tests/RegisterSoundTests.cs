@@ -8,7 +8,6 @@ namespace Zaptibot.Tests;
 
 public class RegisterSoundTests
 {
-    private readonly IConfiguration _configuration;
     private readonly string _soundsPath;
     private readonly string _soundValueSettings = "SoundSettings:SoundsPath";
     
@@ -18,8 +17,8 @@ public class RegisterSoundTests
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile("appsettings.Development.json", optional: false, reloadOnChange: true);
         
-        _configuration = configurationBuilder.Build();
-        _soundsPath = _configuration.GetValue<string>(_soundValueSettings) 
+        IConfiguration configuration = configurationBuilder.Build();
+        _soundsPath = configuration.GetValue<string>(_soundValueSettings) 
               ?? throw new InvalidOperationException($"{_soundValueSettings} is not set in the appsettings.Development.json file.");
     }
     
