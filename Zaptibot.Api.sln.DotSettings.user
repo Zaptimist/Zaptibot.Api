@@ -1,6 +1,6 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=5561b5aa_002D7971_002D49f8_002Dbe60_002D6e6089a2156b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Handle_ShouldAddSoundAndReturnIt" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
-    &lt;TestId&gt;xUnit::F9AEF966-1EB3-44F8-B50F-2A56793D201D::net8.0::Zaptibot.Tests.RegisterSoundTests.Handle_ShouldAddSoundAndReturnIt&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::F9AEF966-1EB3-44F8-B50F-2A56793D201D::net8.0::Zaptibot.Tests.RegisterSoundTests&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
