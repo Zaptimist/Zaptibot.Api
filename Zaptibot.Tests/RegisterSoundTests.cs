@@ -33,7 +33,7 @@ public class RegisterSoundTests
         mockSoundRepository.AddAsync(Arg.Any<Sound>()).Returns(callInfo => callInfo.Arg<Sound>());
 
         // Act
-        Sound result = await registerSound.Handle(request);
+        Sound result = await registerSound.HandleAsync(request);
 
         // Assert
         result.Should().NotBeNull();
