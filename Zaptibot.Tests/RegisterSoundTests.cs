@@ -23,7 +23,7 @@ public class RegisterSoundTests
     }
     
     [Fact]
-    public async Task Handle_ShouldAddSoundAndReturnIt()
+    public async Task Handle_ShouldAddSound_ReturnSound()
     {
         // Arrange
         ISoundRepository? mockSoundRepository = Substitute.For<ISoundRepository>();
