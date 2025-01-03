@@ -6,7 +6,7 @@ public sealed class RegisterSound(ISoundRepository soundRepository)
 {
     public record Request(string Name, string Path);
 
-    public async Task<Sound> Handle(Request request)
+    public async Task<Sound> HandleAsync(Request request)
     {
         Sound newSound = new Sound
         {
