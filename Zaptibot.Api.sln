@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaptibot.Api", "Zaptibot.Api\Zaptibot.Api.csproj", "{CCA2DF36-A13A-4A62-92F1-0422CC868677}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6859F39D-4C46-4FAE-930B-7383045F3A0B}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCA2DF36-A13A-4A62-92F1-0422CC868677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCA2DF36-A13A-4A62-92F1-0422CC868677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCA2DF36-A13A-4A62-92F1-0422CC868677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCA2DF36-A13A-4A62-92F1-0422CC868677}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+﻿services:
+  zaptibot.api:
+    image: zaptibot.api
+    build:
+      context: .
+      dockerfile: Zaptibot.Api/Dockerfile
