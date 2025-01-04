@@ -4,3 +4,9 @@
     build:
       context: .
       dockerfile: Zaptibot.Api/Dockerfile
+
+  zaptibot.identity:
+    image: zaptibot.identity
+    build:
+      context: .
+      dockerfile: Zaptibot.Identity/Dockerfile

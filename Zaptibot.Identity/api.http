@@ -1,0 +1,12 @@
+﻿### Login Request without two factor authentication
+POST http://localhost:5101/login
+Content-Type: application/json
+
+{
+  "email": "zaptibot@example.com",
+  "password": "your_password"
+}
+
+### Get JWT Token Settings
+GET http://localhost:5101/options
+Accept: application/json
