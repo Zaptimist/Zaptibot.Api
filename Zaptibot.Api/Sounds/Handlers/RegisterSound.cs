@@ -1,6 +1,6 @@
 ﻿using Zaptibot.Api.Sounds.Repository;
 
-namespace Zaptibot.Api.Sounds;
+namespace Zaptibot.Api.Sounds.Handlers;
 
 public sealed class RegisterSound(ISoundRepository soundRepository)
 {

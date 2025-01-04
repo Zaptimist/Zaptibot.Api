@@ -2,6 +2,7 @@ using FluentAssertions;
 using Microsoft.Extensions.Configuration;
 using NSubstitute;
 using Zaptibot.Api.Sounds;
+using Zaptibot.Api.Sounds.Handlers;
 using Zaptibot.Api.Sounds.Repository;
 
 namespace Zaptibot.Tests;
