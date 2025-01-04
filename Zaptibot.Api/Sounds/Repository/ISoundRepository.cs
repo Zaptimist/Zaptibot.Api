@@ -1,4 +1,6 @@
-﻿namespace Zaptibot.Api.Sounds.Repository;
+﻿using Zaptibot.Api.Sounds.Models.Entity;
+
+namespace Zaptibot.Api.Sounds.Repository;
 
 public interface ISoundRepository
 {
@@ -8,4 +10,7 @@ public interface ISoundRepository
     /// For development purposes only
     /// </summary>
     Task CreateSoundsTableAsync();
+
+    Task<IEnumerable<Sound>> GetAllAsync();
+    Task<Sound> GetAsync(int id);
 }

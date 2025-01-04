@@ -1,3 +1,4 @@
+using Microsoft.OpenApi.Models;
 using Zaptibot.Api.Exceptions;
 using Zaptibot.Api.Extensions;
 
@@ -6,7 +7,34 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
     builder.Services.AddProblemDetails();
     builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
     builder.Services.AddEndpointsApiExplorer();
-    builder.Services.AddSwaggerGen();
+    builder.Services.AddSwaggerGen(options =>
+    {
+        options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+        {
+            Name = "Authorization",
+            Type = SecuritySchemeType.Http,
+            Scheme = "Bearer",
+            BearerFormat = "JWT",
+            In = ParameterLocation.Header,
+            Description = "Insert your JWT bearer token."
+        });
+        
+        options.AddSecurityRequirement(new OpenApiSecurityRequirement
+        {
+            {
+                new OpenApiSecurityScheme
+                {
+                    Reference = new OpenApiReference
+                    {
+                        Type = ReferenceType.SecurityScheme,
+                        Id = "Bearer"
+                    }
+                },
+                ArraySegment<string>.Empty
+            }
+        });
+    });
+    
     // Custom extension method
     builder.Services.AddServices(builder.Configuration);
     
@@ -33,6 +61,9 @@ WebApplication app = builder.Build();
     {
         app.UseHttpsRedirection();
     }
+
+    app.UseAuthentication();
+    app.UseAuthorization();
     
     app.MapControllers();
     

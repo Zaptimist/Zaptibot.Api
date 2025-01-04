@@ -1,3 +1,4 @@
+using Dapper;
 using Microsoft.Data.Sqlite;
 using Zaptibot.Api.Users.Models;
 
@@ -9,23 +10,7 @@ public class UserRepository(SqliteConnection sqliteConnection) : IUserRepository
     {
         await sqliteConnection.OpenAsync();
 
-        SqliteCommand command = sqliteConnection.CreateCommand();
-        command.CommandText = "SELECT * FROM Users";
-        List<User> users = new List<User>();
-
-        await using (SqliteDataReader reader = await command.ExecuteReaderAsync())
-        {
-            while (await reader.ReadAsync())
-            {
-                users.Add(
-                    new User
-                    {
-                        Id = reader.GetInt32(reader.GetOrdinal("Id")),
-                        Name = reader.GetString(reader.GetOrdinal("Name"))
-                    }
-                );
-            }
-        }
+        IEnumerable<User> users = await sqliteConnection.QueryAsync<User>("SELECT * FROM Users");
 
         await sqliteConnection.CloseAsync();
 
@@ -35,29 +20,19 @@ public class UserRepository(SqliteConnection sqliteConnection) : IUserRepository
     public async Task AddUserAsync(string name)
     {
         await sqliteConnection.OpenAsync();
-        await using (SqliteCommand command = sqliteConnection.CreateCommand())
-        {
-            command.CommandText = "INSERT INTO Users (Name) VALUES (@name)";
-            command.Parameters.AddWithValue("@name", name);
-            await command.ExecuteNonQueryAsync();
-        }
-
+        await sqliteConnection.ExecuteAsync("INSERT INTO Users (Name) VALUES (@name)", new { name });
         await sqliteConnection.CloseAsync();
     }
 
     public async Task CreateUsersTableAsync()
     {
         await sqliteConnection.OpenAsync();
-        await using (SqliteCommand command = sqliteConnection.CreateCommand())
-        {
-            command.CommandText = @"
-                CREATE TABLE IF NOT EXISTS Users (
-                    Id INTEGER PRIMARY KEY,
-                    Name TEXT NOT NULL
-                );
-            ";
-            await command.ExecuteNonQueryAsync();
-        }
+        await sqliteConnection.ExecuteAsync(@"
+            CREATE TABLE IF NOT EXISTS Users (
+                Id INTEGER PRIMARY KEY,
+                Name TEXT NOT NULL
+            );
+        ");
         await sqliteConnection.CloseAsync();
     }
 }

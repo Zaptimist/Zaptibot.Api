@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Zaptibot.Api.Users.Handlers;
 using Zaptibot.Api.Users.Models;
 
 namespace Zaptibot.Api.Users;
 
 [ApiController]
+[Authorize]
 [Route("[controller]")]
 public class UsersController : ControllerBase
 {
@@ -18,6 +20,15 @@ public class UsersController : ControllerBase
     {
         _createUserHandler = createUserHandler ?? throw new ArgumentNullException(nameof(createUserHandler));
         _getUsersHandler = getUsersHandler ?? throw new ArgumentNullException(nameof(getUsersHandler));
+    }
+    
+    
+    [HttpGet]
+    [AllowAnonymous]
+    [Route("/hello-world")]
+    public async Task<IActionResult> GetWorld()
+    {
+        return Ok("Hello, World!");
     }
 
     [HttpPost]

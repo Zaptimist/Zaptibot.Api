@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaptibot.Tests", "Zaptibot.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaptibot.Identity", "Zaptibot.Identity\Zaptibot.Identity.csproj", "{E1D0B04E-C2CC-45A8-B21D-A205AA13E9AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaptibot.SharedLib", "Zaptibot.SharedLib\Zaptibot.SharedLib.csproj", "{028D2775-9054-48E9-8CC1-2DF26C7D2CF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,5 +31,9 @@ Global
 		{E1D0B04E-C2CC-45A8-B21D-A205AA13E9AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1D0B04E-C2CC-45A8-B21D-A205AA13E9AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1D0B04E-C2CC-45A8-B21D-A205AA13E9AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{028D2775-9054-48E9-8CC1-2DF26C7D2CF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{028D2775-9054-48E9-8CC1-2DF26C7D2CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{028D2775-9054-48E9-8CC1-2DF26C7D2CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{028D2775-9054-48E9-8CC1-2DF26C7D2CF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

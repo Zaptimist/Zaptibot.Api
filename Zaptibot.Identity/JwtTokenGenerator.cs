@@ -6,8 +6,12 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Zaptibot.Identity;
 
+// FIXME: IOptionsMonitor does not work in DI, For now we keep the options, but also use JwtTokenSettings from the same settings
+// TODO: See SharedLib/JwtTokenSettings.cs for more information and fix that
 public class JwtTokenGenerator(IOptions<JwtTokenSettings> options)
 {
+    // create expires access token
+    
     public string GenerateToken(string email)
     {
         JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
@@ -23,7 +27,7 @@ public class JwtTokenGenerator(IOptions<JwtTokenSettings> options)
         {
             Subject = new ClaimsIdentity(claims),
             Expires = DateTime.UtcNow.AddMinutes(options.Value.AccessTokenExpiration),
-            SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(byteArray), SecurityAlgorithms.HmacSha256Signature),
+            SigningCredentials = new SigningCredentials(SharedLib.JwtTokenSettings.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256Signature),
             Issuer = options.Value.Issuer,
             Audience = options.Value.Audience
         };

@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.Options;
 
-namespace Zaptibot.Identity;
+namespace Zaptibot.Identity.Configuration;
 
-public class JwtTokenSettingsSetup : IConfigureOptions<JwtTokenSettings>
+public class JwtTokenSettingsConfiguration : IConfigureOptions<JwtTokenSettings>
 {
     private readonly IConfiguration _configuration;
 
-    public JwtTokenSettingsSetup(IConfiguration configuration)
+    public JwtTokenSettingsConfiguration(IConfiguration configuration)
     {
         _configuration = configuration;
     }

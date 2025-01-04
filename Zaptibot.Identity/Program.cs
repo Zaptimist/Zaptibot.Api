@@ -1,8 +1,8 @@
-using Microsoft.Extensions.Options;
 using Zaptibot.Identity;
+using Zaptibot.Identity.Configuration;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-builder.Services.ConfigureOptions<JwtTokenSettingsSetup>();
+builder.Services.ConfigureOptions<JwtTokenSettingsConfiguration>();
 
 builder.Services.AddSingleton<JwtTokenGenerator>();
 
@@ -27,12 +27,5 @@ if (app.Environment.IsProduction())
 }
 
 app.MapControllers();
-
-app.MapGet("options", (IOptionsSnapshot<JwtTokenSettings> optionsSnapshot) => optionsSnapshot.Value);
-
-// app.MapPost("/login", (LoginRequest request, TokenGenerator tokenGenerator) => new
-// {
-//     access_token = tokenGenerator.GenerateToken(request.Email)
-// });
 
 app.Run();
